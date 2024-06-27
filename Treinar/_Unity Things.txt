@@ -1,0 +1,9 @@
+For Player: 	RigidBody 2D
+		BoxColider 2D
+
+For Bricks: 	RigidBody 2D - static (Don't fall)
+		TileMap Colider (for use the below, I need check the composite square in this)
+		Composite Colider 2D (group all blocks colliders in just one)
+
+OBS: 		Quando quiser desativar algum componente, basta colocar, por exemplo: CircleCollider2D var_name; -> var_name.GetComponent<CircleCollider2D>();
+		-> var_name.enable = false or true //////// Destroy(gameObject, 1f) - destroi em 1 segundo

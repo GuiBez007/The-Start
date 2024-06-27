@@ -1,0 +1,46 @@
+para definir uma classe:
+class NomeDaClasse:
+    pass #preenche a classe com nada
+
+class TheSimplestClass:
+    my_first_object = TheSimplestClass() #objeto == instância (eu acho)
+________________________________________________________________________
+STACK - LIFO (last in first out)
+push - coloca ; pop - tira
+
+stack = []
+
+def push(val):
+    stack.append(val)
+
+def pop():
+    val = stack[-1]
+    del stack[-1]
+    return val
+
+push(3)
+push(2)
+
+print(pop())
+print(pop())
+_________________________________________________________________________
+class Stack:  # Defining the Stack class.
+    def __init__(self):  # Defining the constructor function.
+        print("Hi!")
+
+stack_object = Stack()  # Instantiating the object.
+
+OBS: for that I understood, the command "__init__" iniciate tho object of a class. 
+And as parameter, have '(self)' for iniciate itself.
+--------------------------------------------------------------------------
+class Stack:
+    def __init__(self):
+        self.stack_list = []
+
+stack_object = Stack()
+print(len(stack_object.stack_list))
+___________________________________________________________________________
+class Stack: #classe
+    pass
+class AddingStack(Stack): #subclasse
+    pass

@@ -1,0 +1,58 @@
+________________________verificação de caracteres______________________________
+var.isupper
+   .islower
+   .isnum
+   .isnumeric
+   .isdigit
+   .isalpha
+   .isalnum
+   .isdecimal
+   .isspace
+
+
+__________________________adicionar musica ao python_____________________________
+import pygame
+pygame.init()
+pygame.mixer.music.load()
+		  .play()
+pygame.event.wait <não funcionou pra mim>
+OU import time
+time.sleep(60)
+
+
+__________________________fatiamento de strings___________________________________
+frase[9][21][2] - pega do indice 9 ao 20(21 inexiste) pulando de 2 em 2
+frase[:5] ou frase [7:] - desde o começo ou até o final
+EX: frase[4::2] - do indice 4 até o final pulando de 2 em 2
+
+#_____count(), find(), in, replace(), strip()_____
+frase.count('o') - conta quantas vezes a letra 'o' apareceu na frase
+frase.count('o', 0, 13) - conta os 'o' dentro dos indices 0 até 13(12)
+
+frase.find('gui') - procura 'gui' na string e mostra o indice da primeira letra;
+mostra -1 se não encontrar; pode ser usado com caractere tambem
+
+'gui' in frase - retorna True ou False
+
+frase.replace('gui', 'guilherme') - reposiciona 'gui' por 'guilherme'
+frase.upper() - frase.lower()
+
+frase.strip() - remove espaços inúteis tanto no começo quanto no final da string
+frase.rstrip() ou lstrip() - remove espaços somente da esquerda ou direita
+
+#____split() and join()____
+frase.split() - separa cada palavra da string em indices individuais
+frase = 'sou eu aqui' // frase.split() // frase == ['sou', 'eu', 'aqui']
+
+'-'.join(frase) - junta indices individuais separados pelo caractere informado
+RESULTADO: sou-eu-aqui
+
+
+___________________________cores no terminal_______________________________________
+\033[m -> \033[<aqui eu coloco os códigos>m
+EX: print('\033[1;34;46m Olá a todos \033[m !!!')
+
+CODS
+style - 0 nada/ 1 negrito/ 4 sublinhado/ 7 invertido 
+text - 30 branco/ 31 vermelho/ 32 verde/ 33 amarelo/ 34 azul/ 35 lilás/ 36 ciano/ 37 cinza
+background - 40 branco/ 41 vermelho/ 42 verde/ 43 amarelo/ 44 azul/ 45 lilás/ 46 ciano/ 47 cinza
