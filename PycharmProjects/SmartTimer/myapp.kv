@@ -1,0 +1,109 @@
+<Manager>:
+    FirstScreen:
+        name: "firstScreen"
+    BeforeCreateAlarm:
+        name: "beforeAlarm"
+    CreateAlarm:
+        name: "createAlarm"
+    TimerScreen:
+        name: "timerScreen"
+
+
+<ButtonMenu@ButtonBehavior+Label>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.5, 0.7, 1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20]
+    bold: True
+    font_size: 20
+
+
+<FirstScreen>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: root.width * 0.20, root.height * 0.1
+        spacing: 100
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 5
+            size_hint_y: 1
+            Image:
+                source: "data/icon.png"
+                size_hint_y: 1
+            Label:
+                text: "SmarTTimer"
+                color: 0, 0, 0, 1
+                bold: True
+                font_size: 25
+                size_hint_y: None
+                height: 40
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 20
+            ButtonMenu:
+                text: "Criar alarme"
+                on_release:
+                    app.root.current = "createAlarm"
+                    app.root.transition.direction = "left"
+            ButtonMenu:
+                text: "Checar alarmes"
+                on_release: root.checkStatus()
+            ButtonMenu:
+                text: "Cronometro"
+
+
+<CreateAlarm>:
+    canvas:
+        Color:
+            rgba: 14/255.0, 21/255.0, 54/255.0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: root.width * 0.20, root.height * 0.1
+        spacing: 20
+
+        Label:
+            text: "Deseja criar um alarme?"
+            font_size: 30
+            bound: True
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: root.width * 0, root.height * 0.1
+            spacing: 20
+
+            ButtonMenu:
+                text: "Sim, continuar"
+
+            ButtonMenu:
+                text: "Não, voltar"
+                on_release:
+                    app.root.current = "firstScreen"
+                    app.root.transition.direction = "right"
+
+
+<TimerScreen>:
+    canvas:
+        Color:
+            rgba: 14/255.0, 21/255.0, 54/255.0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"

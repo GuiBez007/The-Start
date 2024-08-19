@@ -1,4 +1,3 @@
-- Notas de alunos (medias) usando classes;
 - "jogo de luta" onde dois personagens tem os mesmos poderes + algum outro
 (trabalhar com CLASSES E HERANÇAS);
 - Sistema de banco com CLASSES
