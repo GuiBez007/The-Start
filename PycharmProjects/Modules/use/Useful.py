@@ -10,5 +10,5 @@ def Print():
 
 
 class oi:
-    def (self):
+    def d(self):
         print('fgdfg')
