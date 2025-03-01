@@ -1,0 +1,45 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ * Classe para implementação do CRUD no jFrame Form. Atividade avaliativa
+ * @author GUIlherme Bezerra
+ * @since 30/11/2024 18:00h
+ */
+public class Conexao {
+    static Connection con = null;
+    // Configurações para conexão com MySQL
+    static String driver = "com.mysql.cj.jdbc.Driver";
+    static String url = "jdbc:mysql://localhost:3306/SISTEMA"; // Substitua "seuBancoDeDados" pelo nome do seu banco
+    static String usuario = "root"; // Substitua "seuUsuario" pelo seu usuário do banco de dados
+    static String senha = "root"; // Substitua "suaSenha" pela sua senha do banco de dados
+    
+    public static Connection obterConexao() {
+        try {
+            if (con == null) {
+                // Carregar o driver do MySQL
+                Class.forName(driver);
+                // Conectar ao banco de dados
+                con = DriverManager.getConnection(url, usuario, senha);
+            }
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("Driver não encontrado", e);
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro de conexão com o banco de dados", e);
+        }
+        return con;
+    }
+    
+    public static void main(String[] args) {
+        // Testar conexão
+        obterConexao();
+        System.out.println("Conectado com sucesso");
+    }
+}

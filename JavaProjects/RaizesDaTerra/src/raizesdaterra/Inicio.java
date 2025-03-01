@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Inicio extends javax.swing.JFrame {
     private static Inicio inicio;
+    private static Usuario user;
     
     /**
      * Creates new form MAIN
@@ -39,21 +40,31 @@ public class Inicio extends javax.swing.JFrame {
         jButton_product2 = new javax.swing.JButton();
         jButton_product3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         backGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userIcon.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         userIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/userIcon.png"))); // NOI18N
         getContentPane().add(userIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 70, -1, -1));
 
+        jButton_main.setBackground(new java.awt.Color(255, 247, 221));
         jButton_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/logo.png"))); // NOI18N
+        jButton_main.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_mainActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton_main, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
         jButton_main.setBorderPainted(false);
         jButton_main.setFocusPainted(false);
         jButton_main.setContentAreaFilled(false);
 
+        jButton_logar.setBackground(new java.awt.Color(255, 247, 221));
         jButton_logar.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
         jButton_logar.setText("LOGAR");
         jButton_logar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,63 +77,133 @@ public class Inicio extends javax.swing.JFrame {
         jButton_logar.setFocusPainted(false);
         jButton_logar.setContentAreaFilled(false);
 
+        jButton_search.setBackground(new java.awt.Color(255, 247, 221));
         jButton_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/searchIcon.png"))); // NOI18N
         getContentPane().add(jButton_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 70, -1, -1));
         jButton_search.setBorderPainted(false);
         jButton_search.setFocusPainted(false);
         jButton_search.setContentAreaFilled(false);
 
+        jButton_messages.setBackground(new java.awt.Color(255, 247, 221));
         jButton_messages.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/messagesIcon.png"))); // NOI18N
         getContentPane().add(jButton_messages, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 80, 70, -1));
         jButton_messages.setBorderPainted(false);
         jButton_messages.setFocusPainted(false);
         jButton_messages.setContentAreaFilled(false);
 
+        jButton_cart.setBackground(new java.awt.Color(255, 247, 221));
         jButton_cart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/cartIcon.png"))); // NOI18N
+        jButton_cart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cartActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton_cart, new org.netbeans.lib.awtextra.AbsoluteConstraints(1572, 80, 80, -1));
         jButton_cart.setBorderPainted(false);
         jButton_cart.setFocusPainted(false);
         jButton_cart.setContentAreaFilled(false);
 
         jButton_product1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/product1.png"))); // NOI18N
+        jButton_product1.setContentAreaFilled(false);
+        jButton_product1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_product1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton_product1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, -1));
         jButton_product1.setBorderPainted(false);
         jButton_product1.setFocusPainted(false);
         jButton_product1.setContentAreaFilled(false);
 
         jButton_product2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/product2.png"))); // NOI18N
-        getContentPane().add(jButton_product2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 340, -1, -1));
+        jButton_product2.setContentAreaFilled(false);
+        getContentPane().add(jButton_product2, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 360, -1, -1));
         jButton_product2.setBorderPainted(false);
         jButton_product2.setFocusPainted(false);
         jButton_product2.setContentAreaFilled(false);
 
         jButton_product3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/product3.png"))); // NOI18N
-        getContentPane().add(jButton_product3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 370, -1, -1));
+        jButton_product3.setContentAreaFilled(false);
+        getContentPane().add(jButton_product3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 360, -1, -1));
         jButton_product3.setBorderPainted(false);
         jButton_product3.setFocusPainted(false);
         jButton_product3.setContentAreaFilled(false);
 
-        jTextField1.setText("Procurar Produto");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 460, 40));
+        jTextField1.setBackground(new java.awt.Color(249, 198, 126));
+        jTextField1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jTextField1.setText("Pesquisar no site");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(665, 79, 470, 45));
 
-        backGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/MAIN.png"))); // NOI18N
+        jButton1.setText("EXIT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1860, 10, -1, -1));
+
+        backGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/backgrounds/Main.png"))); // NOI18N
         getContentPane().add(backGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1040));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_logarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_logarActionPerformed
-        // TODO add your handling code here:
-        Logar logar = new Logar();
-        logar.setVisible(true);
-        inicio.setVisible(false);
+        if (getjButton_logar().equals("LOGAR")) {  
+            Login logar = new Login();
+            logar.setVisible(true);
+            user = new Usuario("Guilherme", "12345678910", "1234", "30082002", "Masculino"); // PARA TESTES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            this.setEnabled(false);
+        } else {
+            MenuLogin.exibirMenu().setVisible(true);
+        }
     }//GEN-LAST:event_jButton_logarActionPerformed
+
+    private void jButton_cartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cartActionPerformed
+        ///
+    }//GEN-LAST:event_jButton_cartActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton_product1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_product1ActionPerformed
+        InfoProduto produto = new InfoProduto();
+        produto.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton_product1ActionPerformed
+
+    private void jButton_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_mainActionPerformed
+        Inicio.getInstance().setVisible(true);
+    }//GEN-LAST:event_jButton_mainActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     
     public static Inicio getInstance() {
         if (inicio == null)
             inicio = new Inicio();
         return inicio;
+    }
+    
+    
+    public static Usuario getUser() {
+        return user;
+    }
+    
+    public static void setUser(Usuario obj) {
+        user = obj;
+    }
+    
+    public static void setUser(String nome, String celularEmail, String nascimento, String senha, String genero) {
+        user = new Usuario(nome, celularEmail, nascimento, senha, genero);
     }
     
     
@@ -188,6 +269,7 @@ public class Inicio extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backGround;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_cart;
     private javax.swing.JButton jButton_logar;
     private javax.swing.JButton jButton_main;

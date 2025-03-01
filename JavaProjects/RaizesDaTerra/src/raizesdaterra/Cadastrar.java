@@ -4,12 +4,16 @@
  */
 package raizesdaterra;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PEG
  */
 public class Cadastrar extends javax.swing.JFrame {
-
+    ButtonGroup group = new ButtonGroup();
+    
     /**
      * Creates new form Cadastrar
      */
@@ -35,50 +39,237 @@ public class Cadastrar extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField1.setBackground(new java.awt.Color(223, 158, 62));
         jTextField1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField1.setText("Nome Completo");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 175, 719, 50));
 
         jTextField2.setBackground(new java.awt.Color(223, 158, 62));
         jTextField2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jTextField2.setText("Celular ou e-mail");
+        jTextField2.setText("Celular ou email");
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 302, 719, 50));
 
         jTextField3.setBackground(new java.awt.Color(223, 158, 62));
         jTextField3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField3.setText("Senha");
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 415, 719, 50));
 
         jTextField4.setBackground(new java.awt.Color(223, 158, 62));
         jTextField4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField4.setText("DD");
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 548, 120, 34));
 
         jTextField5.setBackground(new java.awt.Color(223, 158, 62));
         jTextField5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField5.setText("MM");
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 548, 216, 34));
 
         jTextField6.setBackground(new java.awt.Color(223, 158, 62));
         jTextField6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jTextField6.setText("YYYY");
+        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField6FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField6FocusLost(evt);
+            }
+        });
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 548, 120, 34));
+
+        jRadioButton1.setContentAreaFilled(false);
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 669, -1, -1));
+        agruparBotoes();
+
+        jRadioButton2.setContentAreaFilled(false);
         getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 669, -1, -1));
+
+        jRadioButton3.setContentAreaFilled(false);
         getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 669, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/RegisterScreen.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 767, 191, 30));
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setContentAreaFilled(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raizesdaterra/imagens/backgrounds/RegisterScreen.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Método que dispara o botão de cadastro
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (jTextField1.getText().equals("LOGAR") || jTextField1.getText().length() < 3 || jTextField1.getText().matches(".*[?!&|()@#$%*-+/.,:;].*"))
+            JOptionPane.showMessageDialog(null, "Informe um nome válido!", "Warning!", 2);
+        else if (jTextField2.getText().length() < 11)
+            JOptionPane.showMessageDialog(null, "Informe um número de telefone ou email válido!", "Warning!", 2);
+        else if (jTextField3.getText().length() < 3)
+            JOptionPane.showMessageDialog(null, "Informe uma senha de no mínimo 3 caracteres!", "Warning!", 2);
+        else { // continuação das restrições 
+                boolean excecao = false;
+            try {
+                int dia = Integer.parseInt(jTextField4.getText());
+                int mes = Integer.parseInt(jTextField5.getText());
+                int ano = Integer.parseInt(jTextField6.getText());
+                
+                if (1 > dia || dia > 31 || 1 > mes || mes > 12 || 1900 > ano || ano > 2024)
+                    throw new RuntimeException();                
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Data de nascimento inválida!", "Warning!", 2);
+                excecao = true;
+            }
+            if (excecao == true)
+                System.out.println("");
+            else if (group.getSelection() == null)
+                JOptionPane.showMessageDialog(null, "Selecione um gênero!", "Warning!", 2);
+            else {           
+                
+                // Se não der nenhum erro...                 
+                String genero = null;
+                if (jRadioButton1.isSelected())
+                    genero = "Feminino";                                  
+                else if (jRadioButton2.isSelected())
+                    genero = "Masculino";                               
+                else if (jRadioButton3.isSelected())
+                    genero = "Outro";     
+
+                Inicio.setUser(new Usuario(
+                        jTextField1.getText(),
+                        jTextField2.getText(),
+                        jTextField3.getText(),
+                        jTextField4.getText() + jTextField5.getText() + jTextField6.getText(),
+                        genero
+                ));
+
+                Inicio.getUser().logarUsuario();
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        if(jTextField1.getText().equals("Nome Completo"))
+            jTextField1.setText("");
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        if(jTextField2.getText().equals("Celular ou email"))
+            jTextField2.setText("");
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+        if(jTextField3.getText().equals("Senha"))
+            jTextField3.setText("");
+    }//GEN-LAST:event_jTextField3FocusGained
+
+    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+        if(jTextField4.getText().equals("DD"))
+            jTextField4.setText("");
+    }//GEN-LAST:event_jTextField4FocusGained
+
+    private void jTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusGained
+        if(jTextField5.getText().equals("MM"))
+            jTextField5.setText("");
+    }//GEN-LAST:event_jTextField5FocusGained
+
+    private void jTextField6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusGained
+        if(jTextField6.getText().equals("YYYY"))
+            jTextField6.setText("");
+    }//GEN-LAST:event_jTextField6FocusGained
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        if(jTextField1.getText().equals(""))
+            jTextField1.setText("Nome Completo");
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        if(jTextField2.getText().equals(""))
+            jTextField2.setText("Celular ou email");
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        if(jTextField3.getText().equals(""))
+            jTextField3.setText("Senha");
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        if(jTextField4.getText().equals(""))
+            jTextField4.setText("DD");
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+        if(jTextField5.getText().equals(""))
+            jTextField5.setText("MM");
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+        if(jTextField6.getText().equals(""))
+            jTextField6.setText("YYYY");
+    }//GEN-LAST:event_jTextField6FocusLost
+
+    
+    private void agruparBotoes() {       
+        group.add(jRadioButton1);
+        group.add(jRadioButton2);
+        group.add(jRadioButton3);
+    }    
+    
     /**
      * @param args the command line arguments
      */
@@ -114,7 +305,9 @@ public class Cadastrar extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

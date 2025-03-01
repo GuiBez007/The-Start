@@ -1,0 +1,15 @@
+CREATE DATABASE MVCDAO;
+USE MVCDAO;
+
+CREATE TABLE Cliente (
+	codigo int primary key auto_increment,
+    nome varchar(35) not null default '', 
+    telefone varchar(20) not null default '',
+    endereco varchar(100) not null default '',
+    email varchar(50) not null default '',
+    senha varchar(25) not null default ''
+    );
+    
+UPDATE cliente
+SET senha = 1234
+WHERE codigo = ?
